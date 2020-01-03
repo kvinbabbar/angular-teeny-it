@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Dosis:600&display=swap');
+
+@import '_vars';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $primary-font-family;
+}
+body {
+    font-size: $default-font-size;
+    color: $secondary-color;
+    background: $light-bg-color;
+    font-weight: 600;
+}
+
+.btn {
+    background: $secondary-color;
+    font-size: 17px;
+    padding: 9px 32px;
+    border: none;
+    transition: all .1s ease-in-out ;
+    display: inline-block;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.btn:hover,
+.btn:focus {
+    background: $hover-color;
+}
+
+input[type="text"].form-control {
+    width: 100%;
+    height: 40px;
+    background: $input-bg-color;
+    border-radius: 2px;
+    border: none;
+    padding: 0 11px;
+}
+input[type="text"].form-control:focus {
+    outline: 2px solid $primary-color;
+}
+a {
+    text-decoration: none;
+    color: $primary-color;
+}
