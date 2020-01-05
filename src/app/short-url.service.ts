@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ShortUrl } from './short-url';
 
 
@@ -27,7 +28,10 @@ export class ShortUrlService {
   redirectUrl(endpoint): Observable<ShortUrl> {
     // console.log(endpoint);
     if(endpoint != "") {
-      return this.http.get<ShortUrl>(this.entry+endpoint)
+      return this.http.get<{result: ShortUrl, ok: boolean}>(this.entry+endpoint)
+        .pipe(map(data => {
+          return data.result
+        }))
     }
   }
 }

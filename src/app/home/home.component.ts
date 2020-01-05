@@ -17,9 +17,7 @@ export class HomeComponent implements OnInit {
   
   public href: string = '';
 
-  constructor(
-    private ShortUrl: ShortUrlService ) {
-    }
+  constructor(private ShortUrl: ShortUrlService ) { }
     
   ngOnInit() {
     let currentUrl = window.location.href;
@@ -31,7 +29,6 @@ export class HomeComponent implements OnInit {
 
   getRandom(): string {
     const random = Math.random().toString(32).substring(2, 5) + Math.random().toString(32).substring(2, 5);
-    console.log(random);
     return random;
   }
 
@@ -42,7 +39,6 @@ export class HomeComponent implements OnInit {
     const random = this.getRandom();
     this.random = random;
     this.href += random;
-    console.log(random);
     longUrl = longUrl.trim();
     const protocolOk = longUrl.startsWith("http://") || 
     longUrl.startsWith("https://") || 

@@ -1,1 +1,5 @@
-<h4 *ngIf="url">Redirecting to {{url}} ...</h4>
+<h4 *ngIf="url; else noURLFound">Redirecting to {{url}} ...</h4>
+<ng-template #noURLFound>
+    <h4>No URL Found!</h4>
+    <a routerLink="/">Go back and create new short URL.</a>
+</ng-template>

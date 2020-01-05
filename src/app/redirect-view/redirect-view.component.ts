@@ -22,12 +22,14 @@ export class RedirectViewComponent implements OnInit {
   redirectUrl(): void {
     this.shortUrl.redirectUrl(this.endpoint)
       .subscribe(data => {
-        console.log(1, data);
-        console.log(2, data.longUrl);
-        this.urlData = {...data};
-        this.url = this.urlData.result.longUrl;
-        if(this.urlData.result.longUrl) {
-          setTimeout(() => {window.location.href = this.urlData.result.longUrl;}, 3000)
+        console.log(data)
+        this.urlData = data;
+        if(this.urlData !== null) {
+          console.log("found it")
+          this.url = this.urlData.longUrl;
+          setTimeout(() => {window.location.href = this.urlData.longUrl;}, 3000)
+        } else {
+          this.url = null;
         }
       });
   }
